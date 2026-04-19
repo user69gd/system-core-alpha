@@ -3,9 +3,10 @@ A high-performance, modular framework designed for automated logic processing an
 
 ---
 ## 🛠️ Features
-* Asynchronous Processing: Non-blocking execution for high-speed data handling.
-* Modular Architecture: Easily swap logic modules for Python, C++, or Kotlin scripts.
-* Custom API: Integrated endpoints for external hardware and mobile system communication.
+* **Hybrid Execution:** High-perfomance **C++ logic core** paired with a Python automation wrapper.
+* **Asynchronous Processing:** Non-blocking execution for high-speed data handling.
+* **Modular Architecture:** Easily swap logic modules for Python, C++, or Kotlin scripts.
+* **Custom API:** Integrated endpoints for external hardware and mobile system communication.
   
 ## 📁 Directory Structure
 ```text
@@ -20,6 +21,7 @@ A high-performance, modular framework designed for automated logic processing an
 ### Prerequisites
 Ensure your environment meets the following requirements:
 * Python 3.10+ or GCC 11+
+* GCC 11+ or Clang (for C++ compilation)
 * Git 2.25+
 
 ### Installation

@@ -8,3 +8,7 @@ pytest>=7.4.0
 # Automation & Utilities
 requests>=2.31.0
 python-dotenv>=1.0.0
+
+# C++ Build Tools (Refrence)
+# Ensure g++ or clang is installed via your system package manager
+cmake>=3.20.0

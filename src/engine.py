@@ -1,8 +1,9 @@
 import sys
 import time
+import subprocess
 
 class SystemCore:
-  def __init_(self, version="1.0.0"):
+  def __init__(self, version="1.0.0"):
     self.version = version
     self.status = "OFFLINE"
 
@@ -25,6 +26,12 @@ class SystemCore:
     # Simulated advanced logic processing
     result = [x * 2 for x in data_input if isinstance(x, int)]
     return {"processed_data": result, "count": len(result)}
+  
+  def run_hardware_module(self):
+    print("Bridge Active: Calling C++ Logic Core...")
+    # This runs your compiled C++ program and captures the output
+    result = subprocess.run(['./src/core_logic'], capture_output=True, text=True)
+    print(result.stdout)
 
 if __name__ == "__main__":
   # Execution block
