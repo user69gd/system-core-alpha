@@ -23,3 +23,10 @@ jobs:
 
     - name: Run Python Tests
       run: pytest tests/test_logic.py
+
+    - name: Compile C Integrity Check
+      run: gcc tests/logic_integrity_check.c -o tests/integrity_check
+
+    - name: Run C Integrity Check
+      run: ./tests/integrity_check
+      

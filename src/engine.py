@@ -41,4 +41,5 @@ if __name__ == "__main__":
   sample_data = [10, 20, 30, 40, 50]
   output = core.run_logic_task(sample_data)
 
-print(f"Results: {output}")
+  print(f"Results: {output}")
+  core.run_hardware_module()

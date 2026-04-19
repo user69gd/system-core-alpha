@@ -7,6 +7,8 @@ A high-performance, modular framework designed for automated logic processing an
 * **Asynchronous Processing:** Non-blocking execution for high-speed data handling.
 * **Modular Architecture:** Easily swap logic modules for Python, C++, or Kotlin scripts.
 * **Custom API:** Integrated endpoints for external hardware and mobile system communication.
+* **Polyglot Architecture:** Seamless intergration of **Python**, **C++**, and **C**.
+* **Multi-Layer Testing:** Automated verifaction using `pytest` and low-level C integrity checks.
   
 ## 📁 Directory Structure
 ```text
