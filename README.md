@@ -1,3 +1,4 @@
+![Build Status](https://github.com/user69gd/system-core-alpha/actions/workflows/pipeline.yml/badge.svg)
 # system-core-alpha
 A high-performance, modular framework designed for automated logic processing and cross-platform system simulation.
 
@@ -9,6 +10,8 @@ A high-performance, modular framework designed for automated logic processing an
 * **Custom API:** Integrated endpoints for external hardware and mobile system communication.
 * **Polyglot Architecture:** Seamless intergration of **Python**, **C++**, and **C**.
 * **Multi-Layer Testing:** Automated verifaction using `pytest` and low-level C integrity checks.
+* **Polyglot Architecture:** Seamless intergration of **Python**, **C++**, **C**, and **Kotlin**.
+* **JVM Validation:** High-level system parameter verifaction using the Kotlin standard library.
   
 ## 📁 Directory Structure
 ```text

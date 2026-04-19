@@ -23,3 +23,6 @@ Thumbs.db
 # Logs and databases
 *.log
 *.sqlite
+
+# Kotlin Artifacts
+*.jar

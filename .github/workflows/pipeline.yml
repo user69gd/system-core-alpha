@@ -5,32 +5,42 @@ on: [push, pull_request]
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
-        python-version: '3.10'
+        python-version: '3.12'
 
-    - name: Install Dependencies
-      run: pip install -r requirements.txt
+    - name: Set up JDK (for Kotlin)
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
 
-    - name: Compile C++ Core
-      run: g++ src/core_logic.cpp -o src/core_logic
+    - name: Set up Kotlin
+      uses: fwilhe2/setup-kotlin@v1
 
-    - name: Run Python Tests
-      run: pytest tests/test_logic.py
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
 
-    - name: Compile C Integrity Check
-      run: gcc tests/logic_integrity_check.c -o tests/integrity_check
+    - name: Compile C++ and C Core
+      run: |
+        g++ src/core_logic.cpp -o src/core_logic
+        gcc tests/logic_integrity_check.c -o tests/integrity_check
 
-    - name: Run C Integrity Check
-      run: ./tests/integrity_check
-      
+    - name: Compile Kotlin Validator
+      run: kotlinc src/system_validator.kt -include-runtime -d src/system_validator.jar
+
     - name: Run Python Tests
       run: |
         export PYTHONPATH=$PYTHONPATH:$(pwd)
         pytest tests/test_logic.py
+
+    - name: Run Polyglot Integrity Checks
+      run: |
+        ./tests/integrity_check
+        java -jar src/system_validator.jar

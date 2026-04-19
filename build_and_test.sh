@@ -23,3 +23,20 @@ python3 -m pytest tests/test_logic.py
 ./tests/integrity_check
 
 echo "--- ALL SYSTEMS SECURE AND VERIFIED ---"
+
+# Step 5: Compiling and Running Kotlin Validator
+if command -v kotlinc &> /dev/null
+then
+    echo "Step 5: Compiling Kotlin Validator..."
+    kotlinc src/system_validator.kt -include-runtime -d src/system_validator.jar
+    java -jar src/system_validator.jar
+else
+    echo "Step 5: Kotlin compiler not found. Skipping Kotlin build."
+fi
+
+# Inside build_and_test.sh
+echo "Step 5: Compiling Kotlin Validator..."
+kotlinc src/system_validator.kt -include-runtime -d src/system_validator.jar
+
+echo "Step 6: Executing Full Polyglot Engine..."
+python3 src/engine.py
