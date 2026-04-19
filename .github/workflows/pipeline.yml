@@ -30,3 +30,7 @@ jobs:
     - name: Run C Integrity Check
       run: ./tests/integrity_check
       
+    - name: Run Python Tests
+      run: |
+        export PYTHONPATH=$PYTHONPATH:$(pwd)
+        pytest tests/test_logic.py

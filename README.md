@@ -53,7 +53,7 @@ Modify the `config.json` file to adjust system-level parameters, including memor
 ## 🧪 Running Tests
 Execute the testing suite to ensure that all logic modules are performing at 100% efficiency:
 ```bash
-python -m pytest tests/logic_suite.py
+python -m pytest tests/test_logic.py
 ```
 
 ## 📜 License
