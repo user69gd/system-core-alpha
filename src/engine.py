@@ -1,6 +1,7 @@
 import sys
 import time
 import subprocess
+import os
 
 class SystemCore:
   def __init__(self, version="1.0.0"):
@@ -33,6 +34,18 @@ class SystemCore:
     result = subprocess.run(['./src/core_logic'], capture_output=True, text=True)
     print(result.stdout)
 
+  def run_validation_check(self):
+        print("\n--- [BRIDGE] Initializing Kotlin Validator ---")
+        base_path = os.path.dirname(os.path.abspath(__file__))
+        jar_path = os.path.join(base_path, 'system_validator.jar')
+        
+        # We use 'java -jar' to execute the compiled Kotlin bytecode
+        if os.path.exists(jar_path):
+            result = subprocess.run(['java', '-jar', jar_path], capture_output=True, text=True)
+            print(result.stdout)
+        else:
+            print("  [ERROR] system_validator.jar not found. Run the build script first.")
+
 if __name__ == "__main__":
   # Execution block
   core = SystemCore()
@@ -43,3 +56,4 @@ if __name__ == "__main__":
 
   print(f"Results: {output}")
   core.run_hardware_module()
+  core.run_validation_check()
