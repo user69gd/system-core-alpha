@@ -26,3 +26,6 @@ Thumbs.db
 
 # Kotlin Artifacts
 *.jar
+
+# Logs
+*.log
