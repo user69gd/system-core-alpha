@@ -1,0 +1,10 @@
+# Core Logic & Data
+numpy>=1.26.0
+pandas>=2.1.0
+
+# Testing Framework
+pytest>=7.4.0
+
+# Automation & Utilities
+requests>=2.31.0
+python-dotenv>=1.0.0
